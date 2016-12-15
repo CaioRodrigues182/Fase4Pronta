@@ -53,10 +53,6 @@ public class ClienteServico {
 		if (aux == null) {
 			throw new NaoEncontradoException("Cliente não encontrado!", 1);
 		}
-		aux = repo.findOne(x.getCodCliente());
-		if (aux != null && aux.getNome() != x.getNome()) {
-			throw new ServicoException("Já existe um outro Cliente com esse nome!", 1);
-		}
 		validar(x);
 		return repo.save(x);
 	}
